@@ -12,6 +12,8 @@ public class LineItem {
     public LineItem(String productId, int quantity){
         this.productId = productId;
         this.quantity = quantity;
+        System.out.println("[LineItem constructor] productId= " + productId);
+        System.out.println("[LineItem constructor] quantity= " + quantity);
     }
 
     public String getProductId() {
