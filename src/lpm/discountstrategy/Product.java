@@ -13,7 +13,7 @@ public class Product {
     private DiscountStrategy ds;
     
     //public Product(String productId, String productName, double price, double discount){
-    public Product(String productId, String productName, double price, DiscountStrategy ds){
+    public Product(String productId, String productName, double price, DiscountStrategy ds){    
         System.out.println("[Product] constructor");
         this.productId = productId;
         this.productName = productName;
@@ -22,11 +22,11 @@ public class Product {
         this.ds = ds;
         //ds.setDiscount(.25);
         System.out.println("ds.getDiscount " + ds.getDiscount());
-        System.out.println("ds.getDiscountAmount " +  ds.getDiscountAmount(20, 20.00));
-        System.out.println("[Product] constructor productId =" + productId);
+        System.out.println("ds.getDiscountAmount " +  ds.getDiscountAmount(6, 19.95));
+        System.out.println("[Product] constructor productId =" + getProductId());
         System.out.println("[Product] constructor productName =" + productName);
         System.out.println("[Product] constructor price =" + price);
-        System.out.println("[Product] constructor discount =" + discount);
+        System.out.println("[Product] constructor discount =" + ds.getDiscount());
         
         
     }
@@ -56,24 +56,17 @@ public class Product {
         this.price = price;
     }
 
-//    public DiscountStrategy getDiscount() {
-//        return discount;
-//    }
-//
-//    public void setDiscount(DiscountStrategy discount) {
-//        this.discount = discount;
-//    }
-    
+   
     
     
     public static void main(String[] args) {
         
-        Product p;
-        p = new Product("A101", "Baseball Hat", 19.95, new FlatRateDiscount(.25));
-        //FlatRateDiscount frd = new FlatRateDiscount(.15);
-//        System.out.println("frd.getDiscount " + frd.getDiscount());
-//        System.out.println("frd.getDiscountAmount " + frd.getDiscountAmount(15, 15.00));
+        Product p = new Product("A101", "Baseball Hat", 19.95, new NoDiscount());
         
+        LineItem item = new LineItem(product, qty);
+        
+        
+     
     }
         
         

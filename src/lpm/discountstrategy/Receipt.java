@@ -11,17 +11,21 @@ public class Receipt {
     
     private LineItem[] lineItems = {};
     
+    private Customer customer;
+    
     public Receipt (){
-        
+       
     }
     
     // Here's how Receipt class adds a purchased product as a LineItem
     // Note that the Receipt must have a LineItem[]  lineItems array property
     public void addLineItem(Product product, int quantity) {
         //LineItem item = new LineItem(product, qty);
-        System.out.println("[Receipt] addLineItem");
+        System.out.println("[Receipt] addLineItem product= " + product);
+        System.out.println("[Receipt] addLineItem quantity= " + quantity);
         LineItem item = new LineItem(product, quantity);
         addToArray(item);
+        //Product prod = new Product(item);
     }
 
     // Since arrays are fixed in size, to add a new element you must resize
@@ -38,32 +42,4 @@ public class Receipt {
         lineItems = tempItems;
     }
 
-    public String getProductId() {
-        return productId;
-    }
-
-    public void setProductId(String productId) {
-        this.productId = productId;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-    
-    
-    
-    public static void main(String[] args) {
-        Receipt receipt = new Receipt();
-        
-        receipt.setProductId("A101");
-        receipt.setQuantity(10);
-        
-        
-        System.out.println("productId = " + receipt.getProductId());
-        System.out.println("quantity = " + receipt.getQuantity());
-    }
 }

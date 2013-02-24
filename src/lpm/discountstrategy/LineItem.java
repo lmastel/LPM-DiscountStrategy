@@ -1,4 +1,3 @@
-
 package lpm.discountstrategy;
 
 /**
@@ -6,28 +5,47 @@ package lpm.discountstrategy;
  * @author LPM
  */
 public class LineItem {
-   //private Product product;
-   //private int quantity;
+
+    private static Product product;
+    private int quantity;
     
-    public LineItem(Product product, int quantity){
-        System.out.println("[LineItem constructor]");
-        //this.product = product;
-        //this.quantity = quantity;
-        Product p = new Product("A101","Baseball Hat",19.95, new FlatRateDiscount(0.15));
-        
+    
+    private LineItem[] lineItems = {};
+
+    public LineItem(Product product, int quantity) {
+        System.out.println("[LineItem] constructor");
+        this.product = product;
+        this.quantity = quantity;
+        System.out.println("[LineItem] constuctor product= " + product);
+        System.out.println("[LineItem] constuctor quantity= " + quantity);
+        //addLineItem(product, quantity);
     }
 
-    //public Product(String productId, String productName, double price, DiscountStrategy discount) 
-
-        
-//    public static void main(String[] args) {
-//        LineItem lineitem = new LineItem("A101", 10)
+//     public void addItemToSale(String prodId, int qty) {
+//        FakeDatabase db =  new FakeDatabase();
+//        Product product = db.findProduct(prodId);
 //        
-//        System.out.println("productId = " + lineitem.getProductId());
-//        System.out.println("quantity = " + lineitem.getQuantity());
-//        
+//        if(product != null) {
+//            System.out.println("product != null");            
+//            product.
+//        }
 //    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public void setLineItems(LineItem[] lineItems) {
+        this.lineItems = lineItems;
+    }
     
-    
-    
-}
+     public static void main(String[] args) {
+        product = new Product("A101", "Baseball Hat", 19.95, new FlatRateDiscount(.5));
+        LineItem li = new LineItem(product, 6);
+        
+    }
+    }

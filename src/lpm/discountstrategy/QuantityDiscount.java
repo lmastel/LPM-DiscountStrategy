@@ -21,6 +21,9 @@ public class QuantityDiscount implements DiscountStrategy {
 
     @Override
     public double getDiscountAmount(int quantity, double price) {
+        System.out.println("[QuantityDiscount] getDiscountAmount quantity " + quantity);
+        System.out.println("[QuantityDiscount] getDiscountAmount price " + price);
+        System.out.println("[QuantityDiscount] getDiscountAmount minimumQuantity " + minimumQuantity);
         if (quantity >= minimumQuantity) {
             return quantity * price * quantityDiscount;
         } else {

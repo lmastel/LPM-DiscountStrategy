@@ -15,7 +15,7 @@ public class CashRegister {
     
     public void startSale(){
         System.out.println("[CashRegister] startSale");
-        addItemToSale("A101", 5);
+        addItemToSale("A101", 6);
         
     }
         
@@ -30,7 +30,7 @@ public class CashRegister {
         // if found, add the lineItem to the receipt
         // but it's the receipt's job to do this!
         if(product != null) {
-            System.out.println("product != null");
+            System.out.println("product != null");            
             Receipt receipt = new Receipt(); //lpm
             receipt.addLineItem(product, qty);
         }
