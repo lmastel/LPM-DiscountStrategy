@@ -11,6 +11,7 @@ public interface DiscountStrategy {
 
     public abstract double getDiscountAmount(int quantity, double price);
 
-    public abstract void setDiscount(double Discount);
+    public abstract void setDiscount(double discount);  
+    
     
 }

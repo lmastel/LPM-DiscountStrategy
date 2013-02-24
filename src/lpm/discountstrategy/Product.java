@@ -12,10 +12,18 @@ public class Product {
     private DiscountStrategy discount;
     
     public Product(String productId, String productName, double price, DiscountStrategy discount){
+        System.out.println("[Product] constructor");
         this.productId = productId;
         this.productName = productName;
         this.price = price;
-        this.discount = discount;        
+        this.discount = discount;   
+        System.out.println("[Product] constructor productId =" + productId);
+        System.out.println("[Product] constructor productName =" + productName);
+        System.out.println("[Product] constructor price =" + price);
+        DiscountStrategy ds = discount;
+        ds.setDiscount(discount);
+        System.out.println("" +  discount.toString() +   ds.getDiscount());
+        
     }
         
 
@@ -53,19 +61,19 @@ public class Product {
     
     
     
-    public static void main(String[] args) {
-        Product p = new Product("A101", "Baseball Hat", 19.95, new FlatRateDiscount(0.15));
-        
-        System.out.println("productId = " + p.getProductId());
-        System.out.println("productName = " + p.productName);
-        System.out.println("price = " + p.getPrice());
-        
-        
-        
-        
-        DiscountStrategy frd = new FlatRateDiscount(.10);
-        System.out.println("Discount Amount for Product = " + frd.getDiscountAmount(10, 10.00));
-        System.out.println("Discount for Product = " + frd.getDiscount());
-        
-    }
+//    public static void main(String[] args) {
+//        Product p = new Product("A101", "Baseball Hat", 19.95, new FlatRateDiscount(0.15));
+//        
+//        System.out.println("productId = " + p.getProductId());
+//        System.out.println("productName = " + p.productName);
+//        System.out.println("price = " + p.getPrice());
+//        
+//        
+//        
+//        
+//        DiscountStrategy frd = new FlatRateDiscount(.10);
+//        System.out.println("Discount Amount for Product = " + frd.getDiscountAmount(10, 10.00));
+//        System.out.println("Discount for Product = " + frd.getDiscount());
+//        
+//    }
 }
