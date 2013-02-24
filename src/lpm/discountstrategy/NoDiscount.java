@@ -34,7 +34,8 @@ public class NoDiscount implements DiscountStrategy {
     }
     
     public static void main(String[] args) {
-        NoDiscount nd = new NoDiscount(.10);
+        //NoDiscount nd = new NoDiscount(.10);
+        DiscountStrategy nd = new NoDiscount(.10);
         System.out.println("nd.getDiscount " + nd.getDiscount());
         System.out.println("nd.getDiscountAmount " + nd.getDiscountAmount(10, 10.00));
     }      
