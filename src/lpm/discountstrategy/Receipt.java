@@ -13,6 +13,8 @@ public class Receipt {
     
     private Customer customer;
     
+    private static Product product = new Product("A101", "Baseball Hat", 19.95, new FlatRateDiscount(.5));
+    
     public Receipt (){
        
     }
@@ -40,6 +42,20 @@ public class Receipt {
         System.arraycopy(lineItems, 0, tempItems, 0, lineItems.length);
         tempItems[lineItems.length] = item;
         lineItems = tempItems;
+        System.out.println("[Receipt] addToArray lineItems " + lineItems[0]);
+        
     }
 
+    @Override
+    public String toString() {
+        return "Receipt{" + "productId=" + productId + ", quantity=" + quantity + ", lineItems=" + lineItems + ", customer=" + customer + '}';
+    }
+
+    
+    
+    public static void main(String[] args) {
+        Receipt receipt = new Receipt();
+        receipt.addLineItem(product, 5);
+        
+    }
 }

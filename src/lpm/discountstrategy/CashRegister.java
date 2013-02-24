@@ -17,9 +17,7 @@ public class CashRegister {
         System.out.println("[CashRegister] startSale");
         addItemToSale("A101", 6);
         
-    }
-        
-        
+    }       
         
         // When adding an item to a sale you need to look up the item in the database
 	// Here we use the prodId to find product in the above array
