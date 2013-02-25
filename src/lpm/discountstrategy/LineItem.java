@@ -8,70 +8,32 @@ public class LineItem {
 
     private Product product;
     private int quantity;
-    private String prodId; // = "C222"; //for db lookup
-    
-    
-    private LineItem[] lineItems = {};
 
     public LineItem(Product product, int quantity) {
         System.out.println("[LineItem] constructor");
-        
+
         this.product = product;
         this.quantity = quantity;
-        product.setQuantity(quantity);
-        
-        
-        System.out.println("[LineItem] constuctor product= " + product);
-        System.out.println("[LineItem] constuctor quantity= " + quantity);
-        
-        //addLineItem(product, quantity);
-        System.out.println("[LineItem] constuctor prodId= " + product.getProductId());
-        prodId = product.getProductId();
-        
-        dbLookupProduct(prodId, quantity);
+
+        dbLookupProduct(CashRegister.prodId, CashRegister.quantity);
+
     }
 
-     public void dbLookupProduct(String prodId, int qty) {
-        System.out.println("[LineItem]exec FakeDB"); 
-        FakeDatabase db =  new FakeDatabase();
-        Product product = db.findProduct(prodId);
-        
-        if(product != null) {
+    public void dbLookupProduct(String prodId, int qty) {
+        System.out.println("[LineItem]exec FakeDB");
+        FakeDatabase db = new FakeDatabase();
+        Product product = db.findProduct(CashRegister.prodId);
+
+        if (product != null) {
             System.out.println("[LineItem] dbLookupProduct != null");
             System.out.println("[LineItem] dbLookupProduct quantity " + quantity);
-            product.setQuantity(quantity);     
-            
             System.out.println("[LineItem] dblookupProduct product.toString " + product.toString());
-            
+
         }
     }
-     
-     public void setProdId(String prodId){
-         System.out.println("[LineItem] setProdId prodId= " + prodId);
-         this.prodId = prodId;
-     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public static void main(String[] args) {
+        Product p = new Product("B205", "Men's Dress Shirt", 35.50, new QuantityDiscount(.10, 5));
+        LineItem li = new LineItem(p, 7);
     }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public void setLineItems(LineItem[] lineItems) {
-        this.lineItems = lineItems;
-    }
-    
-    
-//     public static void main(String[] args) {
-//        product = new Product("A101", "Baseball Hat", 19.95, new FlatRateDiscount(.5));
-//        LineItem li = new LineItem(product, 6);
-//        
-//    }
-
-    @Override
-    public String toString() {
-        return "LineItem{" + "product=" + product + ", quantity=" + quantity + ", prodId=" + prodId + ", lineItems=" + lineItems + '}';
-    }
-    }
+}

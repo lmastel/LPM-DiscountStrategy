@@ -6,18 +6,20 @@ package lpm.discountstrategy;
  */
 public class QuantityDiscount implements DiscountStrategy {
 
-    private double quantityDiscount = 0;
+    private double discount = 0;
     private int minimumQuantity = 0;
     private int quantity;
 
-    public QuantityDiscount(double quantityDiscount, int minimumQuantity) {
-        this.quantityDiscount = quantityDiscount;
+    public QuantityDiscount(double discount, int minimumQuantity) {
+        this.discount = discount;
         this.minimumQuantity = minimumQuantity;
+        
+        quantity = CashRegister.quantity;
     }
 
     @Override
     public double getDiscount() {
-        return quantityDiscount;
+        return discount;
     }
 
     @Override
@@ -26,7 +28,7 @@ public class QuantityDiscount implements DiscountStrategy {
         System.out.println("[QuantityDiscount] getDiscountAmount price " + price);
         System.out.println("[QuantityDiscount] getDiscountAmount minimumQuantity " + minimumQuantity);
         if (quantity >= minimumQuantity) {
-            return quantity * price * quantityDiscount;
+            return quantity * price * discount;
         } else {
             return 0;
         }
@@ -34,7 +36,7 @@ public class QuantityDiscount implements DiscountStrategy {
 
     @Override
     public void setDiscount(double discount) {
-        this.quantityDiscount = discount;
+        this.discount = discount;
     }
 
     public int getMinimumQuantity() {
@@ -43,16 +45,6 @@ public class QuantityDiscount implements DiscountStrategy {
 
     public void setMinimumQuantity(int minimumQuantity) {
         this.minimumQuantity = minimumQuantity;
-    }
-
-    @Override
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    @Override
-    public int getQuantity() {
-        return quantity;
     }
 
     public static void main(String[] args) {

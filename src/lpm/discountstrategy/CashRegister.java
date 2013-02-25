@@ -5,16 +5,20 @@ package lpm.discountstrategy;
  * @author LPM
  */
 public class CashRegister {
-    
+
+    public static int quantity;
+    public static String prodId;
+
     public CashRegister() {
     }
 
     public void startSale() {
         System.out.println("[CashRegister] startSale");
-        
-        addItemToSale("B205", 6);
 
+        prodId = "B205";
+        quantity = 7;
 
+        addItemToSale(prodId, quantity);
     }
 
     // When adding an item to a sale you need to look up the item in the database
@@ -30,8 +34,8 @@ public class CashRegister {
         // but it's the receipt's job to do this!
         if (product != null) {
             System.out.println("product != null");
-            Receipt receipt = new Receipt(); //lpm
-            receipt.setProductId(prodId);
+            Receipt receipt = new Receipt(); 
+            //receipt.setProductId(prodId);
             receipt.addLineItem(product, qty);
 
         }
@@ -40,5 +44,10 @@ public class CashRegister {
     public void endSale() {
         System.out.println("[CashRegister] endSale");
 
+    }
+    
+    public static void main(String[] args) {
+        CashRegister cr = new CashRegister();
+        cr.startSale();
     }
 }
