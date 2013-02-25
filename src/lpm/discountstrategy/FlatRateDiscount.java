@@ -7,8 +7,10 @@ package lpm.discountstrategy;
 public class FlatRateDiscount implements DiscountStrategy {
 
     private double flatRateDiscount = .15;
+    private int quantity;
 
     public FlatRateDiscount(double flatRateDiscount) {
+        System.out.println("[FlatRateDiscount] constructor");
         this.flatRateDiscount = flatRateDiscount;
     }
 
@@ -33,6 +35,16 @@ public class FlatRateDiscount implements DiscountStrategy {
 //        System.out.println("frd.getDiscount " + frd.getDiscount());
 //        System.out.println("frd.getDiscountAmount " + frd.getDiscountAmount(10, 10.00));
 //    }
-        
+
+    @Override
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    @Override
+    public int getQuantity() {
+        return quantity;
+    }
+         
     
 }

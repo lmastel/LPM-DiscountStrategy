@@ -6,9 +6,11 @@ package lpm.discountstrategy;
  * @author LPM
  */
 public class NoDiscount implements DiscountStrategy {
-    private double noDiscount = 0;    
+    private double noDiscount = 0;   
+    private int quantity;
     
     public NoDiscount() {
+        System.out.println("[NoDiscount] constructor");
         this.noDiscount = 0;
     }
 
@@ -39,4 +41,14 @@ public class NoDiscount implements DiscountStrategy {
 //        System.out.println("nd.getDiscount " + nd.getDiscount());
 //        System.out.println("nd.getDiscountAmount " + nd.getDiscountAmount(10, 10.00));
 //    }      
+
+    @Override
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    @Override
+    public int getQuantity() {
+        return quantity;
+    }
 }

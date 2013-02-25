@@ -18,25 +18,31 @@ public class LineItem {
         
         this.product = product;
         this.quantity = quantity;
-        
+        product.setQuantity(quantity);
         
         
         System.out.println("[LineItem] constuctor product= " + product);
         System.out.println("[LineItem] constuctor quantity= " + quantity);
+        
         //addLineItem(product, quantity);
         System.out.println("[LineItem] constuctor prodId= " + product.getProductId());
         prodId = product.getProductId();
+        
         dbLookupProduct(prodId, quantity);
     }
 
      public void dbLookupProduct(String prodId, int qty) {
+        System.out.println("[LineItem]exec FakeDB"); 
         FakeDatabase db =  new FakeDatabase();
         Product product = db.findProduct(prodId);
         
         if(product != null) {
-            System.out.println("[LineItem] dbLookupProduct != null");            
+            System.out.println("[LineItem] dbLookupProduct != null");
+            System.out.println("[LineItem] dbLookupProduct quantity " + quantity);
+            product.setQuantity(quantity);     
+            
             System.out.println("[LineItem] dblookupProduct product.toString " + product.toString());
-            product.
+            
         }
     }
      

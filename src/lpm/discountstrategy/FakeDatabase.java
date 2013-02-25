@@ -6,7 +6,7 @@ package lpm.discountstrategy;
  * @author LPM
  */
 public class FakeDatabase {
-    private Customer[] customers = {
+   private Customer[] customers = {
 	        new Customer("100", "John Smith"),
 	        new Customer("200", "Sally Jones"),
 	        new Customer("300", "Bob Clementi")
