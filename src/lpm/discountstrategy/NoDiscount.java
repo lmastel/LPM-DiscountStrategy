@@ -33,10 +33,10 @@ public class NoDiscount implements DiscountStrategy {
         this.noDiscount = 0;
     }
     
-    public static void main(String[] args) {
-        //NoDiscount nd = new NoDiscount(.10);
-        DiscountStrategy nd = new NoDiscount();
-        System.out.println("nd.getDiscount " + nd.getDiscount());
-        System.out.println("nd.getDiscountAmount " + nd.getDiscountAmount(10, 10.00));
-    }      
+//    public static void main(String[] args) {
+//        //NoDiscount nd = new NoDiscount(.10);
+//        DiscountStrategy nd = new NoDiscount();
+//        System.out.println("nd.getDiscount " + nd.getDiscount());
+//        System.out.println("nd.getDiscountAmount " + nd.getDiscountAmount(10, 10.00));
+//    }      
 }

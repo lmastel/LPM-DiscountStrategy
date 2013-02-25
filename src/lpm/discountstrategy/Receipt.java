@@ -13,7 +13,7 @@ public class Receipt {
     
     private Customer customer;
     
-    private static Product product = new Product("A101", "Baseball Hat", 19.95, new FlatRateDiscount(.5));
+    private Product product; // = new Product("A101", "Baseball Hat", 19.95, new FlatRateDiscount(.5));
     
     public Receipt (){
        
@@ -23,11 +23,17 @@ public class Receipt {
     // Note that the Receipt must have a LineItem[]  lineItems array property
     public void addLineItem(Product product, int quantity) {
         //LineItem item = new LineItem(product, qty);
+        System.out.println("[Receipt] addLineItem productId " + productId);
         System.out.println("[Receipt] addLineItem product= " + product);
         System.out.println("[Receipt] addLineItem quantity= " + quantity);
         LineItem item = new LineItem(product, quantity);
+        item.setProdId("C222");
         addToArray(item);
+        
+        System.out.println("lineItems[0] " + lineItems[0]);
+        //System.out.println("lineItems[0] " + lineItems[1]);
         //Product prod = new Product(item);
+        
     }
 
     // Since arrays are fixed in size, to add a new element you must resize
@@ -42,9 +48,26 @@ public class Receipt {
         System.arraycopy(lineItems, 0, tempItems, 0, lineItems.length);
         tempItems[lineItems.length] = item;
         lineItems = tempItems;
-        System.out.println("[Receipt] addToArray lineItems " + lineItems[0]);
+        System.out.println("[Receipt] addToArray lineItems[0].toString " + lineItems.toString());
         
     }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
+    }
+    
+//    public String getProductId(){
+//        
+//    }
+    
+    // Here's how to loop through all the line items and get a grand total
+//    public double getTotalBeforeDiscount() {
+//        double grandTotal = 0.0;
+//        for(LineItem item : lineItems) {
+//            grandTotal += item.getOrigPriceSubtotal();
+//        }
+//        return grandTotal;
+//    }
 
     @Override
     public String toString() {
@@ -53,9 +76,9 @@ public class Receipt {
 
     
     
-    public static void main(String[] args) {
-        Receipt receipt = new Receipt();
-        receipt.addLineItem(product, 5);
-        
-    }
+//    public static void main(String[] args) {
+//        Receipt receipt = new Receipt();
+//        receipt.addLineItem(product, 5);
+//        
+//    }
 }

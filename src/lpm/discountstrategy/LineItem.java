@@ -6,21 +6,27 @@ package lpm.discountstrategy;
  */
 public class LineItem {
 
-    private static Product product;
+    private Product product;
     private int quantity;
-    private String prodId = "C222"; //for db lookup
+    private String prodId; // = "C222"; //for db lookup
     
     
     private LineItem[] lineItems = {};
 
     public LineItem(Product product, int quantity) {
         System.out.println("[LineItem] constructor");
+        
         this.product = product;
         this.quantity = quantity;
+        
+        
+        
         System.out.println("[LineItem] constuctor product= " + product);
         System.out.println("[LineItem] constuctor quantity= " + quantity);
         //addLineItem(product, quantity);
-        dbLookupProduct("C222", 6);
+        System.out.println("[LineItem] constuctor prodId= " + product.getProductId());
+        prodId = product.getProductId();
+        dbLookupProduct(prodId, quantity);
     }
 
      public void dbLookupProduct(String prodId, int qty) {
@@ -30,8 +36,14 @@ public class LineItem {
         if(product != null) {
             System.out.println("[LineItem] dbLookupProduct != null");            
             System.out.println("[LineItem] dblookupProduct product.toString " + product.toString());
+            product.
         }
     }
+     
+     public void setProdId(String prodId){
+         System.out.println("[LineItem] setProdId prodId= " + prodId);
+         this.prodId = prodId;
+     }
 
     public void setProduct(Product product) {
         this.product = product;
@@ -46,9 +58,14 @@ public class LineItem {
     }
     
     
-     public static void main(String[] args) {
-        product = new Product("A101", "Baseball Hat", 19.95, new FlatRateDiscount(.5));
-        LineItem li = new LineItem(product, 6);
-        
+//     public static void main(String[] args) {
+//        product = new Product("A101", "Baseball Hat", 19.95, new FlatRateDiscount(.5));
+//        LineItem li = new LineItem(product, 6);
+//        
+//    }
+
+    @Override
+    public String toString() {
+        return "LineItem{" + "product=" + product + ", quantity=" + quantity + ", prodId=" + prodId + ", lineItems=" + lineItems + '}';
     }
     }

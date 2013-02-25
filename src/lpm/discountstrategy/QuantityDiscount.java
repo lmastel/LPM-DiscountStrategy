@@ -44,13 +44,13 @@ public class QuantityDiscount implements DiscountStrategy {
         this.minimumQuantity = minimumQuantity;
     }
     
-    public static void main(String[] args) {
-        //QuantityDiscount qd = new QuantityDiscount(.20,2);
-        DiscountStrategy qd = new QuantityDiscount(.20,2);
-        System.out.println("qd.getDiscount " + qd.getDiscount());
-        //System.out.println("qd.MinimumQuantity " + qd.getMinimumQuantity());
-        System.out.println("qd.getDiscountAmount " + qd.getDiscountAmount(2, 10.00));
-    }
+//    public static void main(String[] args) {
+//        //QuantityDiscount qd = new QuantityDiscount(.20,2);
+//        DiscountStrategy qd = new QuantityDiscount(.20,2);
+//        System.out.println("qd.getDiscount " + qd.getDiscount());
+//        //System.out.println("qd.MinimumQuantity " + qd.getMinimumQuantity());
+//        System.out.println("qd.getDiscountAmount " + qd.getDiscountAmount(2, 10.00));
+//    }
             
     
 }

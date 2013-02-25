@@ -6,7 +6,7 @@ package lpm.discountstrategy;
  */
 public class FlatRateDiscount implements DiscountStrategy {
 
-    private double flatRateDiscount = 0;
+    private double flatRateDiscount = .15;
 
     public FlatRateDiscount(double flatRateDiscount) {
         this.flatRateDiscount = flatRateDiscount;
@@ -27,12 +27,12 @@ public class FlatRateDiscount implements DiscountStrategy {
         this.flatRateDiscount = discount;
     }
 
-    public static void main(String[] args) {
-        //FlatRateDiscount frd = new FlatRateDiscount(.15);
-        DiscountStrategy frd = new FlatRateDiscount(.15);
-        System.out.println("frd.getDiscount " + frd.getDiscount());
-        System.out.println("frd.getDiscountAmount " + frd.getDiscountAmount(10, 10.00));
-    }
+//    public static void main(String[] args) {
+//        //FlatRateDiscount frd = new FlatRateDiscount(.15);
+//        DiscountStrategy frd = new FlatRateDiscount(.15);
+//        System.out.println("frd.getDiscount " + frd.getDiscount());
+//        System.out.println("frd.getDiscountAmount " + frd.getDiscountAmount(10, 10.00));
+//    }
         
     
 }
