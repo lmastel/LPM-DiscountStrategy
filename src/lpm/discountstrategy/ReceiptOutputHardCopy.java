@@ -14,6 +14,12 @@ public class ReceiptOutputHardCopy implements ReceiptOutputStrategy {
     private double discountAmount;
     private double discountedPrice;
     
+    private double totalExtendedPrice = 0;
+    private double totalDiscountAmount = 0;
+    private double totalDiscountedPrice = 0;
+    
+    
+    
     @Override
     public void setCustomerLine(){
         System.out.println("cid " + customerId + " " + customerName);
@@ -38,6 +44,10 @@ public class ReceiptOutputHardCopy implements ReceiptOutputStrategy {
         String discountAmountString = currency.format(discountAmount);
         String discountedPriceString = currency.format(getDiscountedPrice());
         
+        totalExtendedPrice += getExtendedPrice();
+        totalDiscountAmount += discountAmount;
+        totalDiscountedPrice += getDiscountedPrice();
+        
         
         System.out.println(productId + " " +
                            productName + "\t" +
@@ -48,6 +58,20 @@ public class ReceiptOutputHardCopy implements ReceiptOutputStrategy {
                            discountedPriceString);
     }
 
+    public void setTotalLine(){
+        NumberFormat currency = NumberFormat.getCurrencyInstance();
+        String totalExtendedPriceString = currency.format(totalExtendedPrice);
+        String totalDiscountAmountString = currency.format(totalDiscountAmount);
+        String totalDiscountedPriceString = currency.format(totalDiscountedPrice);
+        
+        System.out.println("\t\t\t\t" +
+                           "TOTAL\t " +
+                           totalExtendedPriceString + "\t" +
+                           totalDiscountAmountString + "\t" +
+                           totalDiscountedPriceString);
+        
+    }
+    
     public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }

@@ -83,6 +83,8 @@ public class Receipt {
         out.setCustomerId(customerId);
         out.setCustomerName(customerName);
         out.setCustomerLine();
+        
+        out.setItemHeader();
 
         for (LineItem item : lineItems) {
             item.getQuantity();
@@ -97,17 +99,20 @@ public class Receipt {
 //                System.out.println("ds.getDiscountAmount = "
 //                        + ds.getDiscountAmount(quantity, product.getPrice()));
 
-                out.setItemHeader();
+                
 
                 out.setProductId(product.getProductId());
                 out.setProductName(product.getProductName());
-                out.setQuantity(quantity);
+                out.setQuantity(item.getQuantity());
                 out.setPrice(product.getPrice());
                 out.setDiscountAmount(ds.getDiscountAmount(quantity, product.getPrice()));
                 out.setItemLine();
             }
         }
+        out.setTotalLine();
     }
+    
+    
 //        System.out.println("lineItems[0].getProductId()" + lineItems[0].getProductId());
 //        System.out.println("lineItems[1].getProductId()" + lineItems[1].getProductId());
 //        System.out.println("lineItems[2].getProductId()" + lineItems[2].getProductId());

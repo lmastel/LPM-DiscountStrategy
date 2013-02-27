@@ -23,11 +23,11 @@ public class CashRegister {
         addItemToSale(productId, quantity);
         
         productId = "B205";
-        quantity = 10;
+        quantity = 6;
         addItemToSale(productId, quantity);
         
         productId = "C222";
-        quantity = 10;
+        quantity = 12;
         addItemToSale(productId, quantity);    
         
     }
