@@ -1,10 +1,7 @@
 
 package lpm.discountstrategy;
 
-/**
- *
- * @author LPM
- */
+
 public class Startup {
 
     

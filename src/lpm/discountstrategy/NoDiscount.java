@@ -1,10 +1,7 @@
 
 package lpm.discountstrategy;
 
-/**
- *
- * @author LPM
- */
+
 public class NoDiscount implements DiscountStrategy {
     private double noDiscount = 0;   
     private int quantity;

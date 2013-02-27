@@ -1,10 +1,7 @@
 
 package lpm.discountstrategy;
 
-/**
- *
- * @author LPM
- */
+
 public interface DiscountStrategy {
 
     public abstract double getDiscount();

@@ -3,44 +3,69 @@ package lpm.discountstrategy;
 public class Receipt {
 
     private LineItem[] lineItems = {};
-    private Product product;
+    
+    private String productId;
     private int quantity;
+    private Customer customer;
+    private String customerName;
 
     public Receipt() {
     }
 
-    // Here's how Receipt class adds a purchased product as a LineItem
-    // Note that the Receipt must have a LineItem[]  lineItems array property
-    public void addLineItem(Product product, int quantity) {
+    public void addLineItem(String productId, int quantity) {
         //LineItem item = new LineItem(product, qty);
-
-        LineItem item = new LineItem(product, quantity);
-
+//        System.out.println("[Receipt] addLineItem quantity= " + quantity + " product= " + product);
+        LineItem item = new LineItem(productId, quantity);
+        System.out.println("[Receipt] addLineItem " + item);
         addToArray(item);
-
-        System.out.println("lineItems[0] " + lineItems[0]);
-
-
+        item.setProductId(productId);
+        item.setQuantity(quantity);
     }
 
-    // Since arrays are fixed in size, to add a new element you must resize
-    // the array, but wait, you can't do that in Java! Well, you can fake it. Here's how:
-    // Create a new temporary array that's one larger than the original. Then,
-    // copy all the data from the original into the temporary array.
-    // Finally, add the new item to the new element in the temporary array. Then,
-    // set the original = temporary. That's it!
     private void addToArray(LineItem item) {
         System.out.println("[Receipt] addToArray");
+        System.out.println("[Receipt] addToArray " + item);
         LineItem[] tempItems = new LineItem[lineItems.length + 1];
         System.arraycopy(lineItems, 0, tempItems, 0, lineItems.length);
         tempItems[lineItems.length] = item;
         lineItems = tempItems;
+        System.out.println("[Receipt] addToArray lineItems[0]" + lineItems[0]);
+        //System.out.println("[Receipt] addToArray lineItems[1]" + lineItems[1]);
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void dbLookupCustomer(String customerId) {
+        System.out.println("[Receipt] calls FakeDB");
+        FakeDatabase db = new FakeDatabase();
+        customer = new Customer();
+        customer = db.findCustomer(customerId);
+        System.out.println("customer.getCustomerId()" + customer.getCustomerId());
+        System.out.println("customer.getCustomerName()" + customer.getCustomerName());
+    }
+
+    public void outputReceiptItems(){
+        ReceiptOutputHardCopy o = new ReceiptOutputHardCopy();
+        
+        o.setCustomerLine();
+        o.setItemHeader();
+        o.setItemLine();
     }
     
     public static void main(String[] args) {
         Receipt r = new Receipt();
-        Product p = new Product("A101", "Baseball Hat", 19.95, new FlatRateDiscount(0.15));
-        r.addLineItem(p, 7);
+        r.addLineItem("A101", 7);
+        r.dbLookupCustomer("200");
+
     }
 }
-

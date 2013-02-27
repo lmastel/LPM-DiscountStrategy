@@ -1,9 +1,5 @@
 package lpm.discountstrategy;
 
-/**
- *
- * @author LPM
- */
 public class FakeDatabase {
 
     private Customer[] customers = {
@@ -19,11 +15,11 @@ public class FakeDatabase {
 
     // Just call this method to find a customer in the array by its id.
     // Returns null if not found.
-    public final Customer findCustomer(final String custId) {
+    public final Customer findCustomer(final String customerId) {
         // validation is needed
         Customer customer = null;
         for (Customer c : customers) {
-            if (custId.equals(c.getCustId())) {
+            if (customerId.equals(c.getCustomerId())) {
                 customer = c;
                 break;
             }

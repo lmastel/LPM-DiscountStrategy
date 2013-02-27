@@ -1,54 +1,56 @@
 package lpm.discountstrategy;
 
-/**
- *
- * @author LPM
- */
 public class Customer {
 
-    private String custId;
-    private String custName;
-    //private Customer[] customers = {};
+    private String customerId;
+    private String customerName;
 
-    public Customer(String custId, String custName) {
-        this.custId = custId;
-        this.custName = custName;
-        
+    Customer() {
+    }
+    
+    public Customer(String customerId) {
+        this.customerId = customerId;
+
+//        dbLookupCustomer(customerId);
+    }
+    
+    public Customer(String customerId, String customerName) {
+        this.customerId = customerId;
+        this.customerName = customerName;
+
         //dbLookupCustomer(custId);
     }
 
-    public void dbLookupCustomer(String custId) {
-        //System.out.println("[Customer]exec FakeDB"); 
-        FakeDatabase db =  new FakeDatabase();
-        Customer customer = db.findCustomer(custId);
-        
-        
-        if(customer != null) {
-            System.out.println("[Customer] dbLookupCustomer != null");
-                     
-        }
+    
+
+//    public void dbLookupCustomer(String customerId) {
+//        System.out.println("[Customer]call FakeDB");
+//        FakeDatabase db = new FakeDatabase();
+//        Customer customer = db.findCustomer(customerId);
+//
+//        if (customer != null) {
+//            System.out.println("[Customer] dbLookupCustomer != null");
+//
+//        }
+//    }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
     }
 
-    public String getCustId() {
-        return custId;
+    public String getCustomerId() {
+        return customerId;
     }
 
-    public void setCustId(String custId) {
-        this.custId = custId;
-    }
-
-    public String getCustName() {
-        return custName;
-    }
-
-    public void setCustName(String custName) {
-        this.custName = custName;
+    public String getCustomerName() {
+        return customerName;
     }
 
     public static void main(String[] args) {
-        Customer customer = new Customer("100", "John Smith");
-        
-        System.out.println("custId = " + customer.getCustId());
-        System.out.println("custName = " + customer.custName);
+        Customer customer = new Customer("100");
+
+        System.out.println("customerId = " + customer.getCustomerId());
+        System.out.println("customerName = " + customer.getCustomerName());
+
     }
 }
