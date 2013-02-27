@@ -1,8 +1,10 @@
 package lpm.discountstrategy;
 
+import java.text.NumberFormat;
+
 public class ReceiptOutputHardCopy implements ReceiptOutputStrategy {
 
-    private String customerNumber;
+    private String customerId;
     private String customerName;
     private String productId;
     private String productName;
@@ -14,7 +16,7 @@ public class ReceiptOutputHardCopy implements ReceiptOutputStrategy {
     
     @Override
     public void setCustomerLine(){
-        System.out.println("cid " + customerNumber + " " + customerName);
+        System.out.println("cid " + customerId + " " + customerName);
 }
     
     @Override
@@ -30,18 +32,63 @@ public class ReceiptOutputHardCopy implements ReceiptOutputStrategy {
     
     @Override
     public void setItemLine(){
+        NumberFormat currency = NumberFormat.getCurrencyInstance();
+        String priceString = currency.format(price);
+        String extendedPriceString = currency.format(getExtendedPrice());
+        String discountAmountString = currency.format(discountAmount);
+        String discountedPriceString = currency.format(getDiscountedPrice());
+        
+        
         System.out.println(productId + " " +
-                           productName + "\t " +
+                           productName + "\t" +
                            quantity + "\t" +
-                           price + "\t " +
-                           extendedPrice + "\t\t" +
-                           discountAmount + "\t" +
-                           discountedPrice);
+                           priceString + "\t" +
+                           extendedPriceString + "\t\t" +
+                           discountAmountString + "\t" +
+                           discountedPriceString);
     }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public double getExtendedPrice() {
+        return quantity * price;
+    }
+
+    public void setDiscountAmount(double discountAmount) {
+        this.discountAmount = discountAmount;
+    }
+
+    public double getDiscountedPrice() {
+        return getExtendedPrice() - discountAmount;
+    }
+    
+    
     
     public static void main(String[] args) {
         ReceiptOutputHardCopy r = new ReceiptOutputHardCopy();
-        r.customerNumber = "200";
+        r.customerId = "200";
         r.customerName = "Sally Jones";
         r.productId = "C222";
         r.productName = "Women's Socks";

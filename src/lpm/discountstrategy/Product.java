@@ -8,11 +8,10 @@ public class Product {
     private String productName;
     private double price;
     private DiscountStrategy ds;
-
-    //public Product(String productId, String productName, double price, double discount){
+    
     public Product(String productId, String productName, double price, DiscountStrategy ds) {
         //new Product("B205", "Men's Dress Shirt", 35.50, new QuantityDiscount(.10,5)),
-        System.out.println("[Product] constructor");
+        //System.out.println("[Product] constructor");
         this.productId = productId;
         this.productName = productName;
         this.price = price;
@@ -23,14 +22,6 @@ public class Product {
         
     }
 
-//    public Product(String productId, int quantity){
-//        this.productId = productId;
-//        this.quantity = quantity;
-//        this.productName = "Baseball Hat";
-//        this.price = 19.95;
-//        this.ds = new FlatRateDiscount(0.15);
-//    }
-    
     public double getDiscountAmount(int quantity, double price){
          return ds.getDiscountAmount(quantity, price);
     }
@@ -57,6 +48,22 @@ public class Product {
 
     public DiscountStrategy getDs() {
         return ds;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setDs(DiscountStrategy ds) {
+        this.ds = ds;
     }
     
     

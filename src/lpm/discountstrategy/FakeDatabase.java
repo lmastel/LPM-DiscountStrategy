@@ -36,7 +36,6 @@ public class FakeDatabase {
         for (Product p : products) {
             //if(prodId.equals(p.getProdId())) {
             if (prodId.equals(p.getProductId())) {
-                System.out.println("[DB] getProductId =" + p.getProductId());
                 product = p;
                 break;
             }

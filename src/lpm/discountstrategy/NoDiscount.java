@@ -7,7 +7,7 @@ public class NoDiscount implements DiscountStrategy {
     private int quantity;
     
     public NoDiscount() {
-        System.out.println("[NoDiscount] constructor");
+        //System.out.println("[NoDiscount] constructor");
         this.noDiscount = 0;
     }
 

@@ -6,7 +6,7 @@ public class FlatRateDiscount implements DiscountStrategy {
     private int quantity;
 
     public FlatRateDiscount(double discount) {
-        System.out.println("[FlatRateDiscount] constructor");
+        //System.out.println("[FlatRateDiscount] constructor");
         this.discount = discount;
 
         quantity = CashRegister.quantity;
