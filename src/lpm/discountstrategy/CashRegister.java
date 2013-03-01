@@ -1,34 +1,34 @@
 package lpm.discountstrategy;
 
 public class CashRegister {
-
-    public static int quantity;
-    public static String productId;
-    private Receipt receipt;
-
-    private String customerId;
-    private String customerName;
+    // Don't want these
+//    public static int quantity;
+//    public static String productId;
+//    private String customerId;
+//    private String customerName;
     
+    // You want this
+    private Receipt receipt;
     
     public CashRegister() {
     }
 
     public void startSale() {
         System.out.println("[CashRegister] startSale");
+        System.out.println("");
         
-        receipt = new Receipt();
+//        receipt = new Receipt(); orig
+         
+        receipt = new Receipt("100");
         
-        productId = "A101";
-        quantity = 10;        
-        addItemToSale(productId, quantity);
         
-        productId = "B205";
-        quantity = 6;
-        addItemToSale(productId, quantity);
+              
+        //addItemToSale(productId, quantity);
+        addItemToSale("A101",10);       
         
-        productId = "C222";
-        quantity = 12;
-        addItemToSale(productId, quantity);    
+        addItemToSale("B205", 6);       
+        
+        addItemToSale("C222", 12);    
         
     }
 
@@ -37,26 +37,18 @@ public class CashRegister {
         Product product = db.findProduct(productId);
 
         if (product != null) { //product found in database
-            receipt.setProductId(productId);
-            receipt.setQuantity(quantity);
-            receipt.addLineItem(productId, quantity);
+            receipt.addLineItem(product, quantity);
         } else {
-            System.out.println("Invalid product ID - item void");
+            System.out.println("Invalid productId - item void");
         }
-
     }
 
-    public void endSale() {
-        receipt.dbLookupCustomer("100");   
-        //receipt.setCustomerName(customerName);
-        
+    public void endSale() {        
         receipt.outputReceiptItems();
+        System.out.println("");
+        System.out.println("Thanks for shopping at Java*Mart");
+        System.out.println("");
         System.out.println("[CashRegister] endSale");
     }
 }
-//    public static void main(String[] args) {
-//        CashRegister cr = new CashRegister();
-//        Receipt r = new Receipt();
-//        r.addLineItem(productId, quantity);
-//    }
-//}
+

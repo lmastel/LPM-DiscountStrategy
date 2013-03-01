@@ -3,15 +3,19 @@ package lpm.discountstrategy;
 public class FlatRateDiscount implements DiscountStrategy {
 
     private double discount = .15;
-    private int quantity;
+    //private int quantity;
 
     public FlatRateDiscount(double discount) {
         //System.out.println("[FlatRateDiscount] constructor");
         this.discount = discount;
 
-        quantity = CashRegister.quantity;
+        //quantity = CashRegister.quantity;
     }
 
+    
+
+    
+    
     @Override
     public double getDiscount() {
         return discount;

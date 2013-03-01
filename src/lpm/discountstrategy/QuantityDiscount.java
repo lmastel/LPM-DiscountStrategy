@@ -10,7 +10,7 @@ public class QuantityDiscount implements DiscountStrategy {
         this.discount = discount;
         this.minimumQuantity = minimumQuantity;
         
-        quantity = CashRegister.quantity;
+        //quantity = CashRegister.quantity;
     }
 
     @Override
