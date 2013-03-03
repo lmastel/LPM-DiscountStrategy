@@ -29,6 +29,9 @@ public class ReceiptOutputHardCopy implements ReceiptOutputStrategy {
      * for printing the receipt
      */    
         public void setLineItemInfo(LineItem lineitem){
+            if (lineitem == null ){
+            System.out.println("lineitem is missing");
+            System.exit(1);}
         this.lineitem = lineitem;        
     }
     
@@ -40,6 +43,10 @@ public class ReceiptOutputHardCopy implements ReceiptOutputStrategy {
      */
     @Override
     public void setCustomerLine(String customerId, String customerName){
+        if (customerId.isEmpty()){
+            System.out.println("customer id is missing");
+            System.exit(1);    
+        }
         String format = "MM/dd/yyyy hh:mm a";
         SimpleDateFormat sdf = new SimpleDateFormat(format);
         Calendar c = Calendar.getInstance();
@@ -76,6 +83,9 @@ public class ReceiptOutputHardCopy implements ReceiptOutputStrategy {
      */
     @Override
     public void setItemLine(LineItem lineitem){
+        if (lineitem == null ){
+            System.out.println("lineitem is missing");
+            System.exit(1);}
         NumberFormat currency = NumberFormat.getCurrencyInstance();
         
         String priceString = currency.format(lineitem.getPrice());

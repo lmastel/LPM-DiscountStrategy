@@ -20,6 +20,11 @@ public class Customer {
      * @param customerName  customer name associated with the customer id 
      */
     public Customer(String customerId, String customerName){
+        if (customerId.isEmpty()) {
+            System.out.println("Class Customer, method Customer");
+            System.out.println("customer id is missing - enter valid customer id");
+            System.exit(1);
+        }
         this.customerId = customerId;
         this.customerName = customerName;
     }

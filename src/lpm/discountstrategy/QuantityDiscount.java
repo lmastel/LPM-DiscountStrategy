@@ -15,11 +15,22 @@ public class QuantityDiscount implements DiscountStrategy {
     private int minimumQuantity = 0;
     
     /**
+     * Constructor
      * 
      * @param discount         decimal representing the percent of discount
      * @param minimumQuantity  minimum quantity of product purchase to obtain discount 
      */
     public QuantityDiscount(double discount, int minimumQuantity) {
+        if (discount <= 0.00){
+            System.out.println("Class QuantityDiscount, method QuantityDiscount");    
+            System.out.println("discount is less than or equal to 0.00");
+            System.exit(1);
+        }
+        if (minimumQuantity < 2){
+    System.out.println("Class QuantityDiscount, method QuantityDiscount");
+            System.out.println("minimum quantity is less than 2");
+            System.exit(1);
+        }
         this.discount = discount;
         this.minimumQuantity = minimumQuantity;
         
@@ -41,8 +52,17 @@ public class QuantityDiscount implements DiscountStrategy {
      * @return         discount expressed as a dollar amount
      */
     @Override
-    public double getDiscountAmount(int quantity, double price) {
-        
+    public final double getDiscountAmount(int quantity, double price) {
+        if (quantity <= 0){
+            System.out.println("Class QuantityDiscount, method getDiscountAmount");
+            System.out.println("quantity is less than or equal to 0");
+            System.exit(1);
+        }
+        if (price <= 0.00){
+            System.out.println("Class QuantityDiscount, method getDiscountAmount");
+            System.out.println("price is less than or equal to 0.00");
+            System.exit(1);
+        }
         if (quantity >= minimumQuantity) {
             return quantity * price * discount;
         } else {
@@ -56,6 +76,11 @@ public class QuantityDiscount implements DiscountStrategy {
      */
     @Override
     public void setDiscount(double discount) {
+        if (discount <= 0.00){
+            System.out.println("Class QuantityDiscount, method setDiscount");
+            System.out.println("discount is less than or equal to 0.00");
+            System.exit(1);
+        }
         this.discount = discount;
     }
 
@@ -73,6 +98,11 @@ public class QuantityDiscount implements DiscountStrategy {
      * @param minimumQuantity  
      */
     public void setMinimumQuantity(int minimumQuantity) {
+        if (minimumQuantity < 2){            
+            System.out.println("Class QuantityDiscount, method setMinimumQuantity");
+            System.out.println("minimum quantity is less than 2");
+            System.exit(1);
+        }
         this.minimumQuantity = minimumQuantity;
     }
 

@@ -16,7 +16,11 @@ public class FlatRateDiscount implements DiscountStrategy {
      * Constructor
      * @param discount expressed as a decimal
      */
-    public FlatRateDiscount(double discount) {       
+    public FlatRateDiscount(double discount) {    
+        if (discount <= 0.00){
+            System.out.println("FlatRateDiscount, method FlatRateDiscount");
+            System.out.println("discount is less than or equal to .00");
+        }
         this.discount = discount;
     }
     /**
@@ -35,7 +39,17 @@ public class FlatRateDiscount implements DiscountStrategy {
      * @return         discount expressed as a dollar amount
      */
     @Override
-    public double getDiscountAmount(int quantity, double price) {
+    public final double getDiscountAmount(int quantity, double price) {
+        if (quantity <= 0){
+            System.out.println("Class FlatRateDiscount, method getDiscountAmount");
+            System.out.println("quantity is less than or equal to 0");
+            System.exit(1);
+        }
+        if (price <= 0.00){
+            System.out.println("Class FlatRateDiscount, method getDiscountAmount");
+            System.out.println("price is less than or equal to 0.00");
+            System.exit(1);
+        }
         return quantity * price * discount;
     }
     /**
@@ -45,6 +59,10 @@ public class FlatRateDiscount implements DiscountStrategy {
      */
     @Override    
     public void setDiscount(double discount) {
+        if (discount <= 0.00){
+            System.out.println("FlatRateDiscount, method setDiscount");
+            System.out.println("discount is less than or equal to .00");
+        }
         this.discount = discount;
     }    
 }

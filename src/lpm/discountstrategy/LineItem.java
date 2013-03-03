@@ -20,6 +20,14 @@ public class LineItem {
      * @param quantity quantity of the product being purchased
      */
     public LineItem(Product product, int quantity) {
+        if (product == null) {
+            System.out.println("Class LineItem, method LineItem");
+            System.out.println("product object reference is missing");
+        }
+        if (quantity <= 0) {
+            System.out.println("Class LineItem, method LineItem");
+            System.out.println("quantity is less than or equal to 0");
+        }
         this.product = product;
         this.quantity = quantity;
 
@@ -29,7 +37,7 @@ public class LineItem {
      * 
      * @return quantity of the item being purchased
      */
-    public int getQuantity() {
+    public final int getQuantity() {
         return quantity;
     }
     /**
@@ -37,7 +45,7 @@ public class LineItem {
      * 
      * @return product id (identification)
      */
-    public String getProductId() {
+    public final String getProductId() {
         return product.getProductId();
     }
     /**
@@ -45,7 +53,7 @@ public class LineItem {
      * 
      * @return product name
      */
-    public String getProductName() {
+    public final String getProductName() {
         return product.getProductName();
     }
     /**
@@ -53,7 +61,7 @@ public class LineItem {
      * 
      * @return price of product before any discounts are applied
      */
-    public double getPrice() {
+    public final double getPrice() {
         return product.getPrice();
     }
     /**
@@ -61,7 +69,7 @@ public class LineItem {
      * 
      * @return discount expressed a a dollar amount
      */
-    public double getDiscountAmount(){
+    public final double getDiscountAmount(){
         return product.getDiscountAmount(quantity);
     }    
 }

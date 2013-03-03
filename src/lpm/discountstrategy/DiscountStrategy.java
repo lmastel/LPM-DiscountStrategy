@@ -19,7 +19,7 @@ public interface DiscountStrategy {
      * 
      * @param quantity quantity of product being purchased
      * @param price    price of product before any discounts are applied
-     * @return 
+     * @return discount amount expressed as a dollar amount
      */
     public abstract double getDiscountAmount(int quantity, double price);
 

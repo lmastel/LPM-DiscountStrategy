@@ -29,7 +29,11 @@ public class FakeDatabase {
      * @return Customer object consisting of customer id and customer name 
      */
     public final Customer findCustomer(final String customerId) {
-        // validation is needed
+        if (customerId.isEmpty()){
+            System.out.println("Class FakeDatabase, method findCustomer");
+            System.out.println("customer id is missing");
+            System.exit(1);
+        }
         Customer customer = null;
         for (Customer c : customers) {
             if (customerId.equals(c.getCustomerId())) {
@@ -49,12 +53,16 @@ public class FakeDatabase {
      * @return Product object consisting of product id, product name, 
      * price and discount strategy
      */
-    public final Product findProduct(final String prodId) {
-        // validation is needed
+    public final Product findProduct(final String productId) {
+        if (productId.isEmpty()){
+            System.out.println("Class FakeDatabase, method findProduct");
+            System.out.println("product id is missing");
+            System.exit(1);
+        }
         Product product = null;
         for (Product p : products) {
             //if(prodId.equals(p.getProdId())) {
-            if (prodId.equals(p.getProductId())) {
+            if (productId.equals(p.getProductId())) {
                 product = p;
                 break;
             }

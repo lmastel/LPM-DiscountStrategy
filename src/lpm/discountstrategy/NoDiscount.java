@@ -24,7 +24,7 @@ public class NoDiscount implements DiscountStrategy {
      * @return discount expressed as a decimal, always 0(zero) 
      */
     @Override
-    public double getDiscount() {
+    public final double getDiscount() {
         return 0;
     }
     /**
@@ -35,7 +35,7 @@ public class NoDiscount implements DiscountStrategy {
      * @return          discount expressed as a dollar amount, always 0(zero)
      */
     @Override
-    public double getDiscountAmount(int quantity, double price) {
+    public final double getDiscountAmount(int quantity, double price) {
         return 0;
     }
     /**
@@ -43,7 +43,7 @@ public class NoDiscount implements DiscountStrategy {
      * @param discount 
      */
     @Override
-    public void setDiscount(double discount) {
+    public final void setDiscount(double discount) {
         
     }
     
