@@ -1,6 +1,6 @@
 package lpm.discountstrategy;
  /**
- * FakeDatabae class for Discount Strategy Project
+ * FakeDatabase class for Discount Strategy Project
  * 
  * This class allow access to a "database" of customer and product information
  * 
@@ -21,8 +21,13 @@ public class FakeDatabase {
         new Product("C222", "Women's Socks", 9.50, new NoDiscount())
     };
 
-    // Just call this method to find a customer in the array by its id.
-    // Returns null if not found.
+    
+    /**
+     * Finds a customer in the array that functions as a database.
+     * 
+     * @param customerId  customer id (identification)
+     * @return Customer object consisting of customer id and customer name 
+     */
     public final Customer findCustomer(final String customerId) {
         // validation is needed
         Customer customer = null;
@@ -38,6 +43,12 @@ public class FakeDatabase {
 
     // Just call this method to find a product in the array by its id.
     // Returns null if not found.
+    /**
+     * Finds a product in the array that functions as a database.
+     * @param prodId product id (identification)
+     * @return Product object consisting of product id, product name, 
+     * price and discount strategy
+     */
     public final Product findProduct(final String prodId) {
         // validation is needed
         Product product = null;

@@ -12,10 +12,17 @@ package lpm.discountstrategy;
  */
 public interface ReceiptOutputStrategy {
  
-    
+    /**
+     * 
+     * @param customerID    customer id (identification)
+     * @param customerName  customer name
+     */
     public abstract void setCustomerLine(String customerID, String customerName);
     
     public abstract void setItemHeader();
-    
+    /**
+     * 
+     * @param lineitem object reference
+     */
     public abstract void setItemLine(LineItem lineitem);
 }

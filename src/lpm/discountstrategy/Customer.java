@@ -12,14 +12,13 @@ public class Customer {
 
     private String customerId;
     private String customerName;
-    /**
-     * 
-     * @param customerId identification of the customer making purchases
-     */
-    public Customer(String customerId) {
-        this.customerId = customerId;
-    }    
     
+    /**
+     * Constructor
+     * 
+     * @param customerId    identification of the customer making purchases
+     * @param customerName  customer name associated with the customer id 
+     */
     public Customer(String customerId, String customerName){
         this.customerId = customerId;
         this.customerName = customerName;

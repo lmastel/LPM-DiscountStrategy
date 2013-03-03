@@ -13,8 +13,8 @@ public class Receipt {
     private LineItem[] lineItems = new LineItem[0];
     private Customer customer;
     /**
+     * Constructor
      * Validates that the customer exists in the customer database.
-     * 
      * @param customerId cutomer id(identification) passed 
      */
     public Receipt(String customerId) {

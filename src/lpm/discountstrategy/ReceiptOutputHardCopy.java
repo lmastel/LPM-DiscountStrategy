@@ -17,10 +17,10 @@ import java.util.Date;
  */
 
 public class ReceiptOutputHardCopy implements ReceiptOutputStrategy {
-
-    private double totalExtendedPrice = 0;
-    private double totalDiscountAmount = 0;
-    private double totalDiscountedPrice = 0;
+     
+    private double totalExtendedPrice = 0;   //accum for extended price 
+    private double totalDiscountAmount = 0;  //accum for discounted amount
+    private double totalDiscountedPrice = 0; //accum for discounted price
     
     public LineItem lineitem;
     /**

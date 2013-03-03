@@ -3,7 +3,7 @@ package lpm.discountstrategy;
  * CashRegister class for Discount Strategy Project
  * 
  * This class represents the functions of a cash register
- * in recording a customer's purchase.
+ * in processing a customer's purchase.
  * 
  * @author Larry Mastel lmastel@my.wctc.edu
  * @version 1.00
@@ -19,7 +19,7 @@ public class CashRegister {
      * Starts the sale by creating a receipt. 
      * Adds items to the sale by scanning the product being purchased 
      * to obtain product id and the
-     * quantity of the item being purchased 
+     * quantity of the product being purchased 
      */
     public void startSale() {
         System.out.println("[CashRegister] startSale");

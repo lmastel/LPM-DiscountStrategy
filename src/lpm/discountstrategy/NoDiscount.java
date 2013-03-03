@@ -10,32 +10,41 @@ package lpm.discountstrategy;
  * @author Larry Mastel lmastel@my.wctc.edu
  * @version 1.00
  */
-public class NoDiscount implements DiscountStrategy {
- 
+public class NoDiscount implements DiscountStrategy { 
     
-    
+    /**
+     * Constructor
+     */
     public NoDiscount() {
-        //System.out.println("[NoDiscount] constructor");
-        //this.noDiscount = 0;
+        
     }
 
-    public void setNoDiscount(double noDiscount) {
-        //this.noDiscount = 0;
-    }
-    
+    /**
+     * Gets discount.
+     * @return discount expressed as a decimal, always 0(zero) 
+     */
     @Override
     public double getDiscount() {
         return 0;
     }
-
+    /**
+     * Gets discount amount.
+     * 
+     * @param quantity
+     * @param price
+     * @return          discount expressed as a dollar amount, always 0(zero)
+     */
     @Override
     public double getDiscountAmount(int quantity, double price) {
         return 0;
     }
-
+    /**
+     * Does not allow a discount to be set on a no discount product
+     * @param discount 
+     */
     @Override
     public void setDiscount(double discount) {
-        //this.noDiscount = 0;
+        
     }
     
     
