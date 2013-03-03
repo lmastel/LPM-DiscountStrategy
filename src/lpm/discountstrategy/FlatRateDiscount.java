@@ -1,21 +1,22 @@
 package lpm.discountstrategy;
-
+ /**
+ * FlatRateDiscount class for Discount Strategy Project
+ * 
+ * This class is the concrete implementation of a discount strategy
+ * for products that are eligible for a flat rate discount.
+ * 
+ * @author Larry Mastel lmastel@my.wctc.edu
+ * @version 1.00
+ */
 public class FlatRateDiscount implements DiscountStrategy {
+ 
 
     private double discount = .15;
-    //private int quantity;
-
-    public FlatRateDiscount(double discount) {
-        //System.out.println("[FlatRateDiscount] constructor");
+    
+    public FlatRateDiscount(double discount) {       
         this.discount = discount;
-
-        //quantity = CashRegister.quantity;
     }
 
-    
-
-    
-    
     @Override
     public double getDiscount() {
         return discount;
@@ -29,12 +30,5 @@ public class FlatRateDiscount implements DiscountStrategy {
     @Override
     public void setDiscount(double discount) {
         this.discount = discount;
-    }
-
-    public static void main(String[] args) {
-        //FlatRateDiscount frd = new FlatRateDiscount(.15);
-        DiscountStrategy frd = new FlatRateDiscount(.15);
-        System.out.println("frd.getDiscount " + frd.getDiscount());
-        System.out.println("frd.getDiscountAmount " + frd.getDiscountAmount(10, 10.00));
-    }
+    }    
 }

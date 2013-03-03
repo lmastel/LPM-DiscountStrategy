@@ -1,62 +1,41 @@
 package lpm.discountstrategy;
-
+ /**
+ * Customer class for Discount Strategy Project
+ * 
+ * Represents the customer that is making a purchase.
+ * 
+ * @author Larry Mastel lmastel@my.wctc.edu
+ * @version 1.00
+ */
 public class Customer {
+ 
 
     private String customerId;
     private String customerName;
-
-    Customer() {
-    }
-    
+    /**
+     * 
+     * @param customerId identification of the customer making purchases
+     */
     public Customer(String customerId) {
         this.customerId = customerId;
-
-//        dbLookupCustomer(customerId);
-    }
+    }    
     
-    public Customer(String customerId, String customerName) {
+    public Customer(String customerId, String customerName){
         this.customerId = customerId;
         this.customerName = customerName;
-
-        //dbLookupCustomer(custId);
     }
-
-    
-
-//    public void dbLookupCustomer(String customerId) {
-//        System.out.println("[Customer]call FakeDB");
-//        FakeDatabase db = new FakeDatabase();
-//        Customer customer = db.findCustomer(customerId);
-//
-//        if (customer != null) {
-//            System.out.println("[Customer] dbLookupCustomer != null");
-//
-//        }
-//    }
-
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
-    }
-
+    /**
+     * 
+     * @return customer id (identification)
+     */
     public String getCustomerId() {
         return customerId;
-    }
-
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
-    
-    
-
+    }    
+    /**
+     * 
+     * @return customer name associated with customer id
+     */
     public String getCustomerName() {
         return customerName;
-    }
-
-    public static void main(String[] args) {
-        Customer customer = new Customer("100");
-
-        System.out.println("customerId = " + customer.getCustomerId());
-        System.out.println("customerName = " + customer.getCustomerName());
-
-    }
+    }    
 }

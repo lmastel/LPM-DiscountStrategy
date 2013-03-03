@@ -5,31 +5,39 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+
+ /**
+ * ReceiptOutputHardCopy class for Discount Strategy Project
+ * 
+ * Concrete implementation of the ReceiptOutputStrategy Interface that
+ * outputs receipt information to a hardcopy paper receipt
+ * 
+ * @author Larry Mastel lmastel@my.wctc.edu
+ * @version 1.00
+ */
+
 public class ReceiptOutputHardCopy implements ReceiptOutputStrategy {
 
-    private String customerId;
-    private String customerName;
-    private String productId;
-    private String productName;
-    private int quantity;
-    private double price;
-    private double extendedPrice;
-    private double discountAmount;
-    private double discountedPrice;
-    
     private double totalExtendedPrice = 0;
     private double totalDiscountAmount = 0;
     private double totalDiscountedPrice = 0;
     
-//    public ReceiptOutputHardCopy(LineItem lineitem){
-//        lineitem.
-//    }
     public LineItem lineitem;
-    
-    public void setLineItemInfo(LineItem lineitem){
+    /**
+     * 
+     * @param lineitem object reference passed to allow access to data needed 
+     * for printing the receipt
+     */    
+        public void setLineItemInfo(LineItem lineitem){
         this.lineitem = lineitem;        
     }
     
+    /**
+     * Formats and outputs customer info and current date and time
+     * 
+     * @param customerId    customer id passed for printing on receipt
+     * @param customerName  customer name passed for printing on receipt 
+     */
     @Override
     public void setCustomerLine(String customerId, String customerName){
         String format = "MM/dd/yyyy hh:mm a";
@@ -47,7 +55,9 @@ public class ReceiptOutputHardCopy implements ReceiptOutputStrategy {
                 "  " +
                 formattedDate);
 }
-    
+    /**
+     * Formats and outputs item headings
+     */
     @Override
     public void setItemHeader(){
         System.out.println("\t" + " " +
@@ -58,7 +68,12 @@ public class ReceiptOutputHardCopy implements ReceiptOutputStrategy {
                            "disc" + "\t" +
                            "disc price");
     }
-    
+    /**
+     * Formats and outputs line item information
+     * 
+     * @param lineitem object reference passed to allow access to information
+     * needed to print an individual line item on the receipt
+     */
     @Override
     public void setItemLine(LineItem lineitem){
         NumberFormat currency = NumberFormat.getCurrencyInstance();
@@ -86,7 +101,9 @@ public class ReceiptOutputHardCopy implements ReceiptOutputStrategy {
                            discountAmountString + "\t" +
                            discountedPriceString);
     }
-
+    /**
+     * Formats and outputs the total line on the receipt.
+     */
     public void setTotalLine(){
         NumberFormat currency = NumberFormat.getCurrencyInstance();
         String totalExtendedPriceString = currency.format(totalExtendedPrice);
@@ -101,26 +118,7 @@ public class ReceiptOutputHardCopy implements ReceiptOutputStrategy {
         
     }
     
-    
-
-    
-    
-//    public static void main(String[] args) {
-//        ReceiptOutputHardCopy r = new ReceiptOutputHardCopy();
-//        r.customerId = "200";
-//        r.customerName = "Sally Jones";
-//        r.productId = "C222";
-//        r.productName = "Women's Socks";
-//        r.quantity = 6;
-//        r.price = 9.50;
-//        r.extendedPrice = 57.00;
-//        r.discountAmount = 12.00;
-//        r.discountedPrice= 45.00;
-//        
-//        r.setCustomerLine();
-//        r.setItemHeader();
-//        r.setItemLine();
-//    }
+ 
 }
 
 

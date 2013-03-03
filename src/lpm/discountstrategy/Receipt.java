@@ -1,31 +1,46 @@
 package lpm.discountstrategy;
-
+ /**
+ * Receipt class for Discount Strategy Project
+ * 
+ * This class represents items that will appear on lines on a receipt.
+ * 
+ * @author Larry Mastel lmastel@my.wctc.edu
+ * @version 1.00
+ */
 public class Receipt {
-    // don't want these
-//    private String productId;
-//    private int quantity;
-//    private String customerId;
-//    private String customerName;
-
-    // must have these
+ 
+ 
     private LineItem[] lineItems = new LineItem[0];
     private Customer customer;
-
-    //private Product product;
+    /**
+     * Validates that the customer exists in the customer database.
+     * 
+     * @param customerId cutomer id(identification) passed 
+     */
     public Receipt(String customerId) {
         FakeDatabase db = new FakeDatabase();
         customer = db.findCustomer(customerId);
     }
 
-    // Here's how Receipt class adds a purchased product as a LineItem
-    // Note that the Receipt must have a LineItem[]  lineItems array property
+    /**
+     * Adds a LineItem object to the receipt and stores it in an array for
+     * later use.
+     * 
+     * @param product    object reference passed that contains   product information
+     * @param quantity   quantity of the product that is being purchased
+     */
     public void addLineItem(Product product, int quantity) {
 
         LineItem lineitem = new LineItem(product, quantity);
 
         addToArray(lineitem);
     }
-
+    /**
+     * Adds LineItem object to an array and resizes the array as each item is
+     * added to the receipt.
+     * 
+     * @param item  object reference passed
+     */
     private void addToArray(LineItem item) {
         LineItem[] tempItems = new LineItem[lineItems.length + 1];
 
@@ -36,14 +51,16 @@ public class Receipt {
         lineItems = tempItems;
     }
 
+    /**
+     * Outputs receipt items to the appropriate output device at end of sale.
+     */
     public void outputReceiptItems() {
-        //System.out.println("[Receipt] outputReceiptItems");
-        ReceiptOutputHardCopy out = new ReceiptOutputHardCopy();
+        
+        ReceiptOutputStrategy out = new ReceiptOutputHardCopy();
 
         out.setCustomerLine(customer.getCustomerId(),customer.getCustomerName());
 
-        out.setItemHeader();
-        
+        out.setItemHeader();        
 
         for (LineItem item : lineItems) {
             out.setItemLine(item);

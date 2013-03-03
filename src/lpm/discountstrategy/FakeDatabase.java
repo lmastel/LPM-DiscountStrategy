@@ -1,6 +1,14 @@
 package lpm.discountstrategy;
-
+ /**
+ * FakeDatabae class for Discount Strategy Project
+ * 
+ * This class allow access to a "database" of customer and product information
+ * 
+ * @author Larry Mastel lmastel@my.wctc.edu
+ * @version 1.00
+ */
 public class FakeDatabase {
+ 
 
     private Customer[] customers = {
         new Customer("100", "John Smith"),

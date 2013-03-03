@@ -1,6 +1,15 @@
 package lpm.discountstrategy;
-
+ /**
+ * LineItem class for Discount Strategy Project
+ * 
+ * This class represents one line item, product and quantity of the product,
+ * that is being purchased by the customer.
+ * 
+ * @author Larry Mastel lmastel@my.wctc.edu
+ * @version 1.00
+ */
 public class LineItem {
+ 
 
     private Product product;
     private int quantity;
@@ -29,13 +38,5 @@ public class LineItem {
     
     public double getDiscountAmount(){
         return product.getDiscountAmount(quantity);
-    }
-
-    public static void main(String[] args) {
-        Product p = new Product("B205", "Men's Dress Shirt", 35.50, new QuantityDiscount(.10, 5));
-        LineItem li = new LineItem(p, 7);
-        System.out.println("product = " + li.product);
-        System.out.println("quantity = " + li.quantity);
-
-    }
+    }    
 }

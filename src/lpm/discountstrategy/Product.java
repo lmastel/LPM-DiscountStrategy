@@ -1,7 +1,15 @@
 package lpm.discountstrategy;
 
-
-public class Product {    
+ /**
+ * Product class for Discount Strategy Project
+ * 
+ * This class represents a product that is being purchased by the customer.
+ * 
+ * @author Larry Mastel lmastel@my.wctc.edu
+ * @version 1.00
+ */
+public class Product {  
+ 
     private String productId;
     private String productName;
     private double price;
@@ -14,9 +22,7 @@ public class Product {
         this.productName = productName;
         this.price = price;
         this.ds = ds;
-    }
-    
-    
+    }    
 
     public double getDiscountAmount(int quantity){
          return ds.getDiscountAmount(quantity, price);
@@ -62,14 +68,4 @@ public class Product {
         this.ds = ds;
     }
     
-    
-
-    public static void main(String[] args) {
-        Product p = new Product("B205", "Men's Dress Shirt", 35.50, new QuantityDiscount(.10, 5));
-//        QuantityDiscount ds = new QuantityDiscount(.10, 2);
-//        System.out.println("ds.getDiscount " + ds.getDiscount());
-        
-        System.out.println("p.getDiscountAmount" + p.getDiscountAmount(7));
-
-    }
 }

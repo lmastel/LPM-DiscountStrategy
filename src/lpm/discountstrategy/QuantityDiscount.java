@@ -1,16 +1,24 @@
 package lpm.discountstrategy;
-
+ /**
+ * QuantityDiscount class for Discount Strategy Project
+ * 
+ * This class is the concrete implementation of a discount strategy
+ * for products that are eligible for a quantity discount.
+ * 
+ * @author Larry Mastel lmastel@my.wctc.edu
+ * @version 1.00
+ */
 public class QuantityDiscount implements DiscountStrategy {
+ 
 
     private double discount = 0;
     private int minimumQuantity = 0;
-    private int quantity;
+    
 
     public QuantityDiscount(double discount, int minimumQuantity) {
         this.discount = discount;
         this.minimumQuantity = minimumQuantity;
         
-        //quantity = CashRegister.quantity;
     }
 
     @Override
@@ -41,11 +49,4 @@ public class QuantityDiscount implements DiscountStrategy {
         this.minimumQuantity = minimumQuantity;
     }
 
-    public static void main(String[] args) {
-        //QuantityDiscount qd = new QuantityDiscount(.20,2);
-        DiscountStrategy qd = new QuantityDiscount(.20, 2);
-        System.out.println("qd.getDiscount " + qd.getDiscount());
-        //System.out.println("qd.MinimumQuantity " + qd.getMinimumQuantity());
-        System.out.println("qd.getDiscountAmount " + qd.getDiscountAmount(2, 10.00));
-    }
 }
