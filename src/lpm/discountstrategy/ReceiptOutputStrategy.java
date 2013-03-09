@@ -25,4 +25,6 @@ public interface ReceiptOutputStrategy {
      * @param lineitem object reference
      */
     public abstract void setItemLine(LineItem lineitem);
+    
+    public abstract void setTotalLine();
 }

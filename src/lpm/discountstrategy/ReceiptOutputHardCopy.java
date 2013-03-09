@@ -114,6 +114,7 @@ public class ReceiptOutputHardCopy implements ReceiptOutputStrategy {
     /**
      * Formats and outputs the total line on the receipt.
      */
+    @Override
     public void setTotalLine(){
         NumberFormat currency = NumberFormat.getCurrencyInstance();
         String totalExtendedPriceString = currency.format(totalExtendedPrice);

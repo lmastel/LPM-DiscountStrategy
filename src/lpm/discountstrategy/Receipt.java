@@ -95,6 +95,8 @@ public class Receipt {
         for (LineItem item : lineItems) {
             out.setItemLine(item);
         }
+        
+        out.setTotalLine();
 
     }
 }
